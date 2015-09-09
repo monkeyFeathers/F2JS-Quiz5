@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Random Yoda Quote</title>
+  </head>
+  <body>
+    <button id="yodaButton">Generate Yoda Quote</button>
+    <div id="content">
+      <p></p>
+    </div>
+    <script>
+      var yodaQuotes = ["Do or do not. There is no try.", "My ally is the force.", "Slimy!? Mudhole!? My home this is!", "Wars not make one great."]
+
+      function getRandomString(arrayOfStrings) {
+
+      // Ideally you would first test that arrayOfStrings is actually an array of strings and if not return an error but i'm going to skip that
+
+      return arrayOfStrings[Math.floor(Math.random() * arrayOfStrings.length)]
+
+      }
+
+      var quoteButton = document.getElementById('yodaButton');
+      var contentArea = document.getElementById('content');
+
+      quoteButton.addEventListener('click', function(e) {
+        
+        var quote = document.createTextNode(getRandomString(yodaQuotes));
+        var quoteNode = document.createElement('p');
+        quoteNode.appendChild(quote);
+        contentArea.replaceChild(quoteNode, contentArea.childNodes[0]);
+
+      });
+
+    </script>
+  </body> 
+</html>
